@@ -552,5 +552,5 @@ If you use this project in your research, please cite:
 
 **Made with ❤️ by Team MeshMinds**
 
-[⬆ Back to Top](#CardioScope-AI)
+[⬆ Back to Top](#cardioscope-ai)
 

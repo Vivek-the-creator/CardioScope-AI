@@ -15,7 +15,7 @@
 
 [Features](#-features) • [Demo](#-demo) • [Installation](#-installation) • [Usage](#-usage) • [API Reference](#-api-reference) • [Contributing](#-contributing)
 
-![ECG Analysis Demo](https://via.placeholder.com/800x400/1a1a1a/00ff00?text=ECG+Analysis+Platform)
+[Sample Output](#-sample-output)
 
 </div>
 

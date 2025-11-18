@@ -1,0 +1,11 @@
+{
+  "heart_rate": "17 BPM",
+  "rhythm": "Sinus Rhythm",
+  "pr_interval": "120 ms",
+  "qrs_duration": "80 ms",
+  "qt_interval": "400 ms",
+  "assessment": "Normal ECG",
+  "recommendation": "Your heart rhythm seems regular, but the heart rate is outside the typical range. \nConsider following up with a physician to evaluate possible bradycardia or tachycardia.",
+  "confidence_score": "100.0%",
+  "risk_level": "High"
+}

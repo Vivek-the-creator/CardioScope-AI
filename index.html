@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECG Upload</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <h3>Patient List</h3>
+      <input type="text" id="search" placeholder="Search..." />
+      <ul id="patientList"></ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+      <button id="toggleSidebar" class="menu-btn">☰</button>
+
+      <!-- Upload Row -->
+      <div class="upload-row">
+        <form id="uploadForm" class="upload-form">
+          <!-- Patient Info Left -->
+          <div class="patient-info">
+            <label for="name">Patient Name</label>
+            <input type="text" id="name" required>
+
+            <label for="age">Patient Age</label>
+            <input type="number" id="age" min="0" max="120" required>
+
+            <label for="gender">Patient Gender</label>
+            <select id="gender" required>
+                <option value="">Select</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+          </div>
+
+
+          <!-- Upload Box Right -->
+          <div class="upload-box" id="uploadBox">
+            <h2>Upload ECG</h2>
+
+            <!-- Cloud Upload Area -->
+            <div class="upload-area" id="uploadArea">
+              <img src="cloud_upload.gif" alt="Upload" />
+              <p>drag and drop here or</p>
+              <button type="button" id="browseBtn">browse file</button>
+              <input type="file" id="ecgFile" hidden required />
+            </div>
+
+            <!-- CSV Preview Section -->
+            <div id="csvPreview" class="hidden">
+              <div id="csvTableWrapper"></div>
+            </div>
+
+
+            <!-- ECG Preview + Leads (initially hidden) -->
+            <div id="ecgContent" class="hidden">
+              <img id="previewImage" alt="ECG Preview" />
+              <div id="detectedLeads" class="leads-list"></div>
+            </div>
+
+            <!-- 🔁 Back button moved outside so it works for CSV too -->
+            <button type="button" id="backBtn" class="back-btn hidden">Back</button>
+
+
+        <!-- Hidden Chart + Lead Dropdown -->
+        <div id="chartSection" class="hidden">
+          <!-- CSV Table Preview -->
+          <div id="csvPreview" class="hidden">
+            <h4>ECG CSV Preview</h4>
+            <div id="csvTableWrapper"></div>
+          </div>
+
+          <div class="lead-selector">
+            <label for="leadSelect">Select Lead:</label>
+            <select id="leadSelect">
+              <option disabled selected>Select a lead</option>
+              <option value="I">I</option>
+              <option value="II">II</option>
+              <option value="III">III</option>
+              <option value="aVR">aVR</option>
+              <option value="aVL">aVL</option>
+              <option value="aVF">aVF</option>
+              <option value="V1">V1</option>
+              <option value="V2">V2</option>
+              <option value="V3">V3</option>
+              <option value="V4">V4</option>
+              <option value="V5">V5</option>
+              <option value="V6">V6</option>
+            </select>
+          </div>
+
+          <canvas id="ecgChart" width="600" height="300"></canvas>
+        </div>
+
+
+            <!-- Chart.js -->
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+            <!-- Upload Button -->
+            <button type="submit" class="upload-btn" id="uploadBtn">Upload</button>
+            <!-- Save Changes Button (hidden by default) -->
+            <button type="button" class="upload-btn hidden" id="saveChangesBtn">Save Changes</button>
+            <!-- Update File Button -->
+            <button type="button" class="upload-btn hidden" id="updateFileBtn">Update with New File</button>
+
+
+          </div>
+        </form>
+
+
+
+      <!-- Report Section -->
+      <div class="report">
+        <div class="box">
+          <h3>Diagnosis</h3>
+          <p id="diagnosis">--</p>
+        </div>
+        <div class="box">
+          <h3>Score</h3>
+          <p id="score">--</p>
+        </div>
+        <div class="box notes">
+          <h3>Doctor’s Notes</h3>
+          <p id="notes">--</p>
+        </div>
+      </div>
+      <!-- ✅ Export Button now OUTSIDE the report boxes -->
+      <div style="text-align: right; margin-top: 10px;">
+        <button id="exportPdfBtn" class="upload-btn hidden">Export as PDF</button>
+      </div>
+    </div>
+  </div>
+  <!-- jsPDF and html2pdf libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="script.js"></script>
+  <!-- Custom Confirmation Modal -->
+  <div id="customModal" class="modal hidden">
+    <div class="modal-content">
+      <p id="modalMessage">Are you sure?</p>
+      <div class="modal-buttons">
+        <button id="modalYes">Yes</button>
+        <button id="modalNo">No</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

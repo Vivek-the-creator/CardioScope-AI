@@ -1,0 +1,11 @@
+flask
+flask-cors
+opencv-python-headless
+numpy
+scipy
+pandas
+matplotlib
+scikit-image
+imutils
+neurokit2
+tensorflow==2.20.0

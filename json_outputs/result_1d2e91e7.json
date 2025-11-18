@@ -1,0 +1,11 @@
+{
+  "heart_rate": "65 BPM",
+  "rhythm": "Sinus Rhythm",
+  "pr_interval": "120 ms",
+  "qrs_duration": "80 ms",
+  "qt_interval": "400 ms",
+  "assessment": "Normal ECG",
+  "recommendation": "The model detected abnormalities that may need medical evaluation. Please seek a cardiologist's opinion and consider additional diagnostics.",
+  "confidence_score": "100.0%",
+  "risk_level": "Low"
+}
